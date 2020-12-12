@@ -7,10 +7,32 @@ import Colors from '../../constants/colors';
 const StartGameScreen = props => {
 
     const [inputValue, setInputValue] = useState('');
+    const [confirmed, setConfirmed] = useState(false);
+    const [selectedNumber, setSelectedNumber] = useState();
 
     const avoidInputNumber = inputText => {
         setInputValue(inputText.replace(/[^0-9]/g, ''))
     } 
+
+    const resetInput = () => {
+        setInputValue('');
+        setConfirmed(false);
+    }
+
+    const confirmInput = () => {
+        const chosenNumber = parseInt(inputValue);
+        if (inputValue === '' || chosenNumber === NaN || chosenNumber <= 0 || chosenNumber > 99){
+            return
+        }
+        setConfirmed(true);
+        setSelectedNumber(chosenNumber);
+        setInputValue('');
+    }
+
+
+    let confirmedOutput = confirmed && <Text>Chosen number is: {selectedNumber}</Text>
+    
+
 
     return (
         <TouchableWithoutFeedback onPress={()=> Keyboard.dismiss()}>
@@ -21,13 +43,14 @@ const StartGameScreen = props => {
                     <Input style={styles.input} blurOnSubmit autoCapitalize='none' autoCorrect={false} keyboardType='numeric' maxLength={2} onChangeText={avoidInputNumber} value={inputValue}/>
                     <View style={styles.buttonContainer}>
                         <View style={styles.button}>
-                            <Button title='Reset' color={Colors.secondary} onPress={() => {}}/>
+                            <Button title='Reset' color='black' onPress={resetInput}/>
                         </View>
                         <View style={styles.button}>
-                            <Button title='Confirm' color={Colors.primary} onPress={() => {}}/>
+                            <Button title='Confirm' color={Colors.primary} onPress={confirmInput}/>
                         </View>
                     </View>
                 </Card>
+                {confirmedOutput}
             </View>
         </TouchableWithoutFeedback>
     )
