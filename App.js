@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Header from './components/Header';
-import StartGameScreen from './components/screens/StartGameScreen';
+import PreGameScreen from './components/screens/PreGameScreen';
 import GameScreen from './components/screens/GameScreen'
 
 
 
 export default function App() {
 
-  const [userChoice, setUserChoice] = useState();
+  const [userNumber, setUserNumber] = useState();
 
-  const startGame = (selectedNumber) => {
-    setUserChoice(selectedNumber)
+  const startGame = selectedNumber => {
+    setUserNumber(selectedNumber)
   }
 
-  let content = <StartGameScreen onStart={startGame}/>
-  if (userChoice) {
-    content = <GameScreen userChoice={userChoice}/>
+  let content = <PreGameScreen onStart={startGame}/>
+  if (userNumber) {
+    content = <GameScreen userChoice={userNumber}/>
   }
 
   return (
