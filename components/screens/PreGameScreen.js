@@ -35,7 +35,7 @@ const StartGameScreen = props => {
     }
 
 
-
+    // Display user choice after confirm
     let confirmedOutput;
     if (confirmed) {
         confirmedOutput = (
