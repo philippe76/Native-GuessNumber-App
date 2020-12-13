@@ -14,4 +14,8 @@ Thx to [Academind Tuto](https://www.youtube.com/watch?v=qSRrxpdMpVc) 😉
 
 <br />
 
-<img src='assets/Capture1.PNG'/><img src='assets/Capture2.PNG'/><img src='assets/Capture3.PNG'/>
+<img src='assets/Capture11.PNG'/>
+
+<img src='assets/Capture22.PNG'/>
+
+<img src='assets/Capture33.PNG'/>
